@@ -1,0 +1,5 @@
+target/
+*.key
+*.pem
+wg0.conf
+.env
