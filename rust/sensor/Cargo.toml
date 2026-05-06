@@ -1,0 +1,18 @@
+[package]
+name = "sensor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Base para comunicación y asincronía
+zmq = "0.9"
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Adición necesaria: Generación de datos aleatorios para la simulación
+rand = "0.8" 
+
+# Sugerido para manejo de tiempo y logs
+chrono = "0.4"
+
