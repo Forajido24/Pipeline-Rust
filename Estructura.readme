@@ -1,0 +1,45 @@
+Structure:
+
+└── ./
+    └── Pipeline-Rust
+        ├── docker
+        │   ├── coordinator
+        │   │   └── Dockerfile
+        │   ├── edge
+        │   │   └── Dockerfile
+        │   ├── sensor
+        │   │   └── Dockerfile
+        │   └── docker-compose.yml
+        ├── nodos
+        │   ├── edge
+        │   │   ├── src
+        │   │   │   └── main.rs
+        │   │   ├── Cargo.toml
+        │   │   └── Dockerfile
+        │   ├── sensor
+        │   │   ├── src
+        │   │   │   └── main.rs
+        │   │   ├── Cargo.toml
+        │   │   └── Dockerfile
+        │   ├── Cargo.toml
+        │   └── docker-compose.yml
+        ├── rust
+        │   ├── coordinator
+        │   │   ├── src
+        │   │   │   └── main.rs
+        │   │   └── Cargo.toml
+        │   ├── edge
+        │   │   ├── src
+        │   │   │   └── main.rs
+        │   │   └── Cargo.toml
+        │   ├── sensor
+        │   │   ├── src
+        │   │   │   └── main.rs
+        │   │   └── Cargo.toml
+        │   ├── shared
+        │   │   ├── src
+        │   │   │   └── lib.rs
+        │   │   └── Cargo.toml
+        │   └── Cargo.toml
+        ├── .gitignore
+        └── README.md
