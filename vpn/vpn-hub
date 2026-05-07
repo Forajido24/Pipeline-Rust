@@ -1,0 +1,70 @@
+1- WireGuard:
+  -Actualizar sistema:
+    sudo apt update && sudo apt upgrade -y
+
+  -Instalar dependencias:
+    sudo apt install -y \
+    wireguard \
+    iperf3 \
+    docker.io \
+    docker-compose \
+    rustc \
+    cargo \
+    curl \
+    build-essential
+
+  -Verificar instalación:
+    wg --version
+    docker --version
+    docker-compose --version
+    cargo --version
+
+2- Crear directorio de configuración:
+  -Directorio:
+    mkdir Wireguard
+
+  -Entrar al directorio:
+    cd Wireguard
+
+3- Generación de llaves:
+  -Generamos las llaves dentro del directorio:
+    wg genkey | tee privatekey | wg pubkey > publickey
+
+  -Obtenemos llave privada:
+    cat privatekey
+  -Obtenemos llave publica:
+    cat publickey
+
+4- Creación del archivo de configuración:
+  -Crear archivo de configuración:
+    notepad server.conf
+
+  -Configuración del Host:
+    [Interface]
+    PrivateKey = (CLAVE_PRIVADA_HOST)
+    Address = 10.0.0.1/24
+    ListenPort = 51820
+
+    
+    [Peer]
+    PublicKey = (CLAVE_PUBLICA_WORKER1)
+    AllowedIPs = 10.0.0.2/32
+    
+    [Peer]
+    PublicKey = (CLAVE_PUBLICA_WORKER2)
+    AllowedIPs = 10.0.0.3/32
+
+    [Peer]
+    PublicKey = (CLAVE_PUBLICA_WORKER3)
+    AllowedIPs = 10.0.0.4/32
+
+
+5- Levantar la VPN:
+  -Activar VPN:
+    wireguard /installtunnelservice C:\WireGuard\server.conf
+
+  -Apagar VPN:
+     wireguard /uninstalltunnelservice server
+
+  -Verificamos el estado:
+    wg
