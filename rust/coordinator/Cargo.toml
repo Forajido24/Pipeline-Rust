@@ -1,0 +1,22 @@
+[package]
+name = "coordinator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Base obligatoria
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Adición: Framework web para el endpoint HTTP de estado (Mét>
+# Axum es el recomendado en el Documento B
+axum = "0.6"
+
+# Adición: Para comunicación con los edges
+zmq = "0.9"
+
+# Registro de métricas y detección de fallos
+chrono = "0.4"
+tracing = "0.1"
+tracing-subscriber = "0.3
