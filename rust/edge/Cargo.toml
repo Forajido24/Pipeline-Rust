@@ -1,0 +1,18 @@
+[package]
+name = "edge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Base obligatoria
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Adición para comunicación: ZeroMQ o gRPC (según prefieras, aquí ejemplo con ZMQ)
+# Documento B permite zmq para pub/sub o push/pull
+zmq = "0.9"
+
+# Sugerido para logging (obligatorio para demostrar flujo en el reporte)
+tracing = "0.1"
+tracing-subscriber = "0.3"
